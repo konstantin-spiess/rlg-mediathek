@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const AppHeader = () => {
   return (
-    <div className="fixed left-0 top-0 flex w-full border-b border-gray-300 p-2 dark:border-neutral-800 dark:from-inherit ">
+    <div className="fixed left-0 top-0 flex w-full border-b border-black p-2 dark:border-white dark:from-inherit ">
       <a
         className="flex place-items-center gap-2 pointer-events-auto"
         href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app" // TODO: Update link to RLG Mediathek (ENV)
