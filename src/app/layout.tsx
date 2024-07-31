@@ -1,13 +1,16 @@
+import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
-import { Red_Hat_Display } from 'next/font/google';
+import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 
-const font = Red_Hat_Display({ subsets: ['latin'] });
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+});
 
 export const metadata: Metadata = {
   title: 'RLG Mediathek',
   description: 'RLG Mediathek',
-
 };
 
 export default function RootLayout({
@@ -17,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={font.className}>{children}</body>
+      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>{children}</body>
     </html>
   );
 }
