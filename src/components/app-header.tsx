@@ -1,4 +1,3 @@
-import { env } from '@/env';
 import { SignedIn, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 
@@ -7,7 +6,7 @@ export const AppHeader = () => {
     <nav className="flex w-full items-center justify-between border-b border-black p-2 dark:border-white dark:from-inherit">
       <a
         className="pointer-events-auto flex place-items-center gap-2"
-        href={env.NEXT_PUBLIC_APPLICATION_BASE_URL}
+        href={'/'}
         target="_blank"
         rel="noopener noreferrer"
       >
