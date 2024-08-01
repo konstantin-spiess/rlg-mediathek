@@ -1,5 +1,6 @@
 import { AppHeader } from '@/components/app-header';
 import { cn } from '@/lib/utils';
+import { deDE } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <ClerkProvider>
+      <ClerkProvider localization={deDE}>
         <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
           <AppHeader />
           {children}
