@@ -1,9 +1,8 @@
 import { cn } from '@/lib/utils';
-import { ClerkProvider, GoogleOneTap } from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
-import { AppHeader } from '@/components/app-header';
 
 const fontSans = FontSans({
   subsets: ['latin'],
