@@ -1,3 +1,4 @@
+import { AppHeader } from '@/components/app-header';
 import { cn } from '@/lib/utils';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
@@ -24,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="de">
       <ClerkProvider>
-        <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>{children}</body>
+        <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+          <AppHeader />
+          {children}
+        </body>
       </ClerkProvider>
     </html>
   );
