@@ -7,7 +7,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev",
+    "deploy": "npm run pages:build && wrangler pages deploy",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "wrangler d1 migrations apply rlg-mediathek --local",
+    "db:migrate:preview": "wrangler d1 migrations apply --env preview rlg-mediathek-preview",
+    "db:migrate:prod": "wrangler d1 migrations apply rlg-mediathek --remote",
+    "db:studio:local": "cross-env DB_LOCAL_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
+    "db:studio:preview": "cross-env NODE_ENV='preview' drizzle-kit studio",
+    "db:studio:prod": "drizzle-kit studio"
   },
   "dependencies": {
     "@clerk/localizations": "^2.5.2",
@@ -16,6 +26,7 @@
     "@t3-oss/env-nextjs": "^0.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.33.0",
     "jiti": "^1.21.6",
     "lucide-react": "^0.418.0",
     "next": "14.2.5",
@@ -26,19 +37,25 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.1",
+    "@cloudflare/next-on-pages": "^1.13.3",
+    "@cloudflare/workers-types": "^4.20240925.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "better-sqlite3": "^11.3.0",
+    "cross-env": "^7.0.3",
+    "drizzle-kit": "^0.24.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-next-on-pages": "^1.13.3",
     "eslint-plugin-prettier": "^5.2.1",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.0.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^3.79.0"
   }
 }
